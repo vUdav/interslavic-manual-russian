@@ -31,10 +31,11 @@ const chapterFiles = fs
 
 const content = chapterFiles.map((file) => {
   const title = file.replace(/^\d+__/, "").replace(".md", "");
+  const filename = file.split("__")[0];
   let data = md
     .render(fs.readFileSync(path.join(chaptersDir, file), "utf8"))
     .replace(/src="src\/assets\/images\//g, 'src="file://src/assets/images/');
-  return { title, data };
+  return { title, data, filename };
 });
 
 // Options
@@ -64,6 +65,8 @@ epub
 
 // Generate HTML
 const htmlDir = "./build/html";
+fs.rmSync(htmlDir, { recursive: true, force: true });
+
 if (!fs.existsSync(htmlDir)) {
   fs.mkdirSync(htmlDir, { recursive: true });
 }
