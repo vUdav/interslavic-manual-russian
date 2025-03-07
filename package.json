@@ -1,0 +1,24 @@
+{
+  "name": "interslavic-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "node watch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lesjoursfr/html-to-epub": "^4.5.0",
+    "chokidar": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-image-figures": "^2.1.1",
+    "markdown-it-sup": "^2.0.0"
+  }
+}
