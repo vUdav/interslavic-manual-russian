@@ -25,17 +25,16 @@ jobs:
         run: npm run build
 
       - name: Upload EPUB artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: epub-file
+          name: epub
           path: build/*.epub
 
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v2
+      - name: Upload HTML artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: dist-archive
-          path: dist/**
-          archive: true
+          name: html
+          path: dist/*.html
 
   deploy:
     runs-on: ubuntu-latest
