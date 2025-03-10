@@ -2,6 +2,14 @@ import fs from "fs";
 import { EPub } from "@lesjoursfr/html-to-epub";
 
 export default (content, title, author) => {
+  const htmlDir = "./build";
+
+  fs.rmSync(htmlDir, { recursive: true, force: true });
+
+  if (!fs.existsSync(htmlDir)) {
+    fs.mkdirSync(htmlDir, { recursive: true });
+  }
+
   const formattedContent = content.map((chapter) => {
     return {
       ...chapter,
@@ -25,7 +33,7 @@ export default (content, title, author) => {
   };
 
   // Generate EPub
-  const epub = new EPub(option, `build/${author} - ${title}.epub`);
+  const epub = new EPub(option, `${htmlDir}/${author} - ${title}.epub`);
 
   epub
     .render()
