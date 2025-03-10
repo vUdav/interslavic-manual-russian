@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: html
-          path: dist/*.html
+          path: dist/**/*.*
 
   deploy:
     runs-on: ubuntu-latest
