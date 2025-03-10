@@ -7,7 +7,9 @@
   "scripts": {
     "build": "node ./scripts/index.js",
     "watch": "node ./scripts/watch.js",
-    "serve": "serve ./dist -p 8080"
+    "serve": "serve ./dist -p 8080",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "markdown-it-sup": "^2.0.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "serve": "^14.2.4"
   }
 }
